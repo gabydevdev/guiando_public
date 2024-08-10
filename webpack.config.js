@@ -12,7 +12,7 @@ module.exports = {
 	mode: isDev ? 'development' : 'production',
 	devtool: 'eval-cheap-source-map',
 	output: {
-		path: Path.resolve(__dirname, 'dist/')
+		path: Path.resolve(__dirname, 'build/')
 	},
 	resolve: {
 		alias: {
