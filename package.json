@@ -17,7 +17,7 @@
 		"lint:styles": "stylelint src/**/*.scss",
 		"lint:scripts": "eslint src/**/*js",
 		"start": "cross-env NODE_ENV=development webpack serve",
-		"build": "cross-env NODE_ENV=production webpack",
+		"build": "cross-env NODE_ENV=production webpack"
 	},
 	"devDependencies": {
 		"@babel/core": "7.24.4",
