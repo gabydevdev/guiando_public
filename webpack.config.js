@@ -52,7 +52,7 @@ module.exports = {
 				'Resolved .env path: ',
 				Path.resolve(__dirname, `.env.${process.env.NODE_ENV}`)
 			);
-			console.log('BASE_URL: ', process.env.BASE_URL);
+			console.log('BASE_URL_PATH: ', process.env.BASE_URL_PATH);
 		},
 	],
 	module: {
