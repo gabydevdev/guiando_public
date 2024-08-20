@@ -57,6 +57,7 @@
 		"webpack-merge": "5.10.0"
 	},
 	"dependencies": {
-		"@tabler/core": "^1.0.0-beta20"
+		"@tabler/core": "^1.0.0-beta20",
+		"sprucecss": "^2.3.1"
 	}
 }

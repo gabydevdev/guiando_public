@@ -14,7 +14,7 @@ module.exports = {
 	mode: isDev ? 'development' : 'production',
 	devtool: 'source-map',
 	output: {
-		path: Path.resolve(__dirname, 'build/')
+		path: Path.resolve(__dirname, 'build/'),
 	},
 	resolve: {
 		alias: {
@@ -27,6 +27,7 @@ module.exports = {
 	plugins: [
 	    new Webpack.DefinePlugin({
 			'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV),
+			'process.env.BASE_URL_PATH': JSON.stringify(process.env.BASE_URL_PATH),
 			'process.env.API_URL': JSON.stringify(process.env.API_URL),
 			'process.env.FORM_URL': JSON.stringify(process.env.FORM_URL),
 		}),
