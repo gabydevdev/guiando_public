@@ -1,6 +1,7 @@
+const fs = require('fs');
 const Webpack = require('webpack');
 const Path = require('path');
-const { CleanWebpackPlugin } = require("clean-webpack-plugin");
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const HtmlBundlerPlugin = require('html-bundler-webpack-plugin');
 
 const isDev = process.env.NODE_ENV === 'development';
@@ -8,6 +9,26 @@ const isDev = process.env.NODE_ENV === 'development';
 require('dotenv').config({
 	path: Path.resolve(__dirname, `.env.${process.env.NODE_ENV}`),
 });
+
+// Set the directory path for pages
+const pagesDirectory = Path.join(__dirname, 'src/pages/');
+
+// Helper function to generate entries
+function generateEntries(directory) {
+	const files = fs.readdirSync(directory);
+	const entries = {};
+
+	files.forEach((file) => {
+		console.log(file);
+
+		const name = Path.parse(file).name;
+		if (Path.extname(file) == '.hbs') {
+			entries[name] = Path.join(directory, file);
+		}
+	});
+
+	return entries;
+}
 
 module.exports = {
 	target: 'web',
@@ -18,6 +39,7 @@ module.exports = {
 	},
 	resolve: {
 		alias: {
+			'@fonts': Path.join(__dirname, 'src/fonts'),
 			'@images': Path.join(__dirname, 'src/images'),
 			'@scripts': Path.join(__dirname, 'src/scripts'),
 			'@styles': Path.join(__dirname, 'src/styles'),
@@ -25,7 +47,7 @@ module.exports = {
 		modules: [Path.resolve(__dirname, 'node_modules'), 'node_modules'],
 	},
 	plugins: [
-	    new Webpack.DefinePlugin({
+		new Webpack.DefinePlugin({
 			'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV),
 			'process.env.BASE_URL_PATH': JSON.stringify(process.env.BASE_URL_PATH),
 			'process.env.API_URL': JSON.stringify(process.env.API_URL),
@@ -33,7 +55,9 @@ module.exports = {
 		}),
 		new CleanWebpackPlugin(),
 		new HtmlBundlerPlugin({
-			entry: Path.join(__dirname, 'src/pages/'),
+			entry: generateEntries(pagesDirectory),
+			// entry: Path.join(__dirname, 'src/pages/'),
+			data: 'src/data/global.js',
 			preprocessor: 'handlebars',
 			preprocessorOptions: {
 				partials: ['src/partials/', 'src/pages/'],
@@ -94,7 +118,7 @@ module.exports = {
 	},
 	devServer: {
 		port: 8000,
-		open: false,
+		open: true,
 		static: Path.resolve(__dirname, 'build'),
 		watchFiles: {
 			paths: ['src/**/*.*'],
