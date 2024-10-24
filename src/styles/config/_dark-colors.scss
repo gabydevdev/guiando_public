@@ -1,12 +1,12 @@
 @use "sass:color";
 
 $color-background: #1f242d;
-$color-surface: #232C36;
+$color-surface: #232c36;
 $color-gray-dark: #182433;
 $color-gray: #49566c;
 $color-muted: #8c9aab;
-$color-primary: #066FD1;
-$color-secondary: #6C7A91;
+$color-primary: #066fd1;
+$color-secondary: #6c7a91;
 $color-danger: #ca3032;
 $color-success: #2fb344;
 $color-on-surface: #eef0f2;
@@ -38,7 +38,7 @@ $colors: (
 		// "secondary-background-hover":
 		// 	color.adjust($color-secondary, $lightness: 5%),
 		// "secondary-foreground": $color-highlight,
-		// "secondary-shadow": color.adjust($color-secondary, $lightness: -20%),
+		// "secondary-shadow": color.adjust($color-secondary, $lightness: -20%),,
 	),
 	"form": (
 		"background": color.scale($color-surface, $lightness: 5%),

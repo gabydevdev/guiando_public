@@ -56,7 +56,6 @@ module.exports = {
 		new CleanWebpackPlugin(),
 		new HtmlBundlerPlugin({
 			entry: generateEntries(pagesDirectory),
-			// entry: Path.join(__dirname, 'src/pages/'),
 			data: 'src/data/global.js',
 			preprocessor: 'handlebars',
 			preprocessorOptions: {
