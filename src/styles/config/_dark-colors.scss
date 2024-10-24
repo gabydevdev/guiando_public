@@ -1,16 +1,16 @@
 @use "sass:color";
 
-$color-background: #1d242d;
-$color-surface: #182433;
+$color-background: #1f242d;
+$color-surface: #232C36;
 $color-gray-dark: #182433;
 $color-gray: #49566c;
 $color-muted: #8c9aab;
-$color-primary: #2936ff;
-$color-secondary: #546881;
+$color-primary: #066FD1;
+$color-secondary: #6C7A91;
 $color-danger: #ca3032;
 $color-success: #2fb344;
 $color-on-surface: #eef0f2;
-$color-highlight: #f6f7f9;
+$color-highlight: #ffffff;
 
 $colors: (
 	"base": (
@@ -20,8 +20,8 @@ $colors: (
 		"code-background": hsl(207deg 64% 18%),
 		// "code-foreground": $color-highlight,
 		// "heading": $color-highlight,
-		"link": $color-primary,
-		"link-hover": color.scale($color-primary, $lightness: 20%),
+		"link": color.scale($color-primary, $lightness: 90%),
+		"link-hover": color.scale($color-primary, $lightness: 50%),
 		// "mark-background": hsl(50deg 100% 80%),
 		// "mark-foreground": $color-surface,
 		// "marker": $color-primary,
