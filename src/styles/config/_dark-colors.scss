@@ -1,0 +1,85 @@
+@use "sass:color";
+
+$color-background: #1d242d;
+$color-surface: #182433;
+$color-gray-dark: #182433;
+$color-gray: #49566c;
+$color-muted: #8c9aab;
+$color-primary: #2936ff;
+$color-secondary: #546881;
+$color-danger: #ca3032;
+$color-success: #2fb344;
+$color-on-surface: #eef0f2;
+$color-highlight: #f6f7f9;
+
+$colors: (
+	"base": (
+		"background": $color-background,
+		"blockquote-border": $color-primary,
+		"border": $color-gray,
+		"code-background": hsl(207deg 64% 18%),
+		// "code-foreground": $color-highlight,
+		// "heading": $color-highlight,
+		"link": $color-primary,
+		"link-hover": color.scale($color-primary, $lightness: 20%),
+		// "mark-background": hsl(50deg 100% 80%),
+		// "mark-foreground": $color-surface,
+		// "marker": $color-primary,
+		"primary": $color-primary,
+		"secondary": $color-secondary,
+		"text": $color-on-surface,
+	),
+	"btn": (
+		"primary-background": $color-primary,
+		"primary-background-hover": color.adjust($color-primary, $lightness: 5%),
+		"primary-foreground": $color-highlight,
+		"primary-shadow": color.adjust($color-primary, $lightness: -25%),
+		// "secondary-background": $color-secondary,
+		// "secondary-background-hover":
+		// 	color.adjust($color-secondary, $lightness: 5%),
+		// "secondary-foreground": $color-highlight,
+		// "secondary-shadow": color.adjust($color-secondary, $lightness: -20%),
+	),
+	"form": (
+		"background": color.scale($color-surface, $lightness: 5%),
+		"background-disabled": $color-surface,
+		"border": $color-gray,
+		"border-disabled": $color-gray,
+		"border-focus": $color-primary,
+		"check-background": $color-primary,
+		"check-focus-ring": $color-primary,
+		"check-foreground": $color-surface,
+		// "group-label-background": color.scale($color-surface, $lightness: 2.5%),
+		// "group-label-foreground": $color-gray,
+		"invalid": $color-danger,
+		"invalid-focus-ring": color.adjust($color-danger, $alpha: -0.75),
+		"label": $color-highlight,
+		"legend": $color-highlight,
+		"placeholder": hsl(0deg 0% 60%),
+		"range-thumb-background": $color-primary,
+		"range-thumb-focus-ring": $color-primary,
+		"range-track-background": $color-gray-dark,
+		"ring-focus": color.adjust($color-primary, $alpha: -0.75),
+		"select-foreground": hsl(0deg 0% 100%),
+		// "text": $color-gray,
+		"valid": $color-success,
+		"valid-focus-ring": color.adjust($color-success, $alpha: -0.75),
+	),
+	"selection": (
+		"background": $color-primary,
+		"foreground": $color-highlight,
+	),
+	"scrollbar": (
+		"thumb-background": hsl(0deg 0% 100% / 15%),
+		"thumb-background-hover": hsl(0deg 0% 100% / 25%),
+		"track-background": hsl(0deg 0% 100% / 5%),
+	),
+	"table": (
+		"border": $color-gray-dark,
+		// "caption": $color-gray,
+		"heading": $color-highlight,
+		"hover": hsl(0deg 0% 100% / 5%),
+		// "text": $color-gray,
+		"stripe": hsl(0deg 0% 100% / 2.5%),
+	),
+);

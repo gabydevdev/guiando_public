@@ -2,10 +2,14 @@ module.exports = {
 	webRoot: '',
 	pageTitle: 'Default Page',
 	currentPageUrl: '',
-	menuItems: [
+	pages: [
 		{
 			title: 'Home',
 			url: '/',
+		},
+		{
+			title: 'Requests',
+			url: '/requests.html',
 		},
 		{
 			title: 'About',

@@ -1,0 +1,9 @@
+.l-main {
+	padding-block: get-css-variable(--section-gap);
+
+	&__inner {
+		display: flex;
+		flex-direction: column;
+		gap: spacer("l");
+	}
+}

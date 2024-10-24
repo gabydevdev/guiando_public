@@ -1,0 +1,6 @@
+@use "sprucecss/scss/spruce" as *;
+
+@include generate-default;
+@include generate-media;
+@include generate-table;
+@include generate-typography;

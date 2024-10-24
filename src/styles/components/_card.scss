@@ -1,0 +1,77 @@
+@use "sprucecss/scss/spruce" as *;
+
+.app-card {
+	$this: &;
+
+	background-color: color("background");
+	border: 1px solid color("border");
+	border-radius: config("border-radius-sm", $display);
+	box-shadow: 0 0 spacer("xxs") hsl(201deg 72% 32% / 5%);
+
+	&:focus-within {
+		z-index: 5;
+	}
+
+	&--info {
+		box-shadow: none;
+
+		#{$this}__header {
+			border-block-end: 0;
+			min-block-size: 0;
+			padding-block: spacer("m") 0;
+			padding-inline: spacer("m");
+		}
+
+		#{$this}__body {
+			padding-block: spacer("m");
+
+			> * {
+				padding-inline: spacer("m");
+			}
+		}
+	}
+
+	&__header {
+		align-items: center;
+		border-block-end: 1px solid color("border");
+		display: flex;
+		flex-wrap: wrap;
+		gap: spacer("xs") spacer("m");
+		justify-content: space-between;
+		min-block-size: 3.4rem;
+		padding: 0.75rem spacer("s");
+	}
+
+	&__actions {
+		align-items: center;
+		display: flex;
+		flex-wrap: wrap;
+		gap: spacer("xs");
+		margin-inline-start: auto;
+	}
+
+	&__title {
+		font-size: font-size("h4");
+		font-weight: 600;
+		margin-block: 0;
+	}
+
+	&__body {
+		padding-block: spacer("s");
+
+		&--plain {
+			align-items: center;
+			display: flex;
+			justify-content: space-between;
+			padding: 0;
+		}
+
+		> * {
+			padding-inline: spacer("s");
+		}
+
+		img:not(.data-table__image) {
+			border-radius: config("border-radius-sm", $display);
+		}
+	}
+}

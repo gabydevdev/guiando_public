@@ -1,32 +1,41 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
 	<meta charset="UTF-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
-	<title>{{title}}</title>
 
-	{{! common used source styles and scripts }}
+	<title>{{pageTitle}}</title>
+
+	{{! general style }}
 	<link href="@styles/index.scss" rel="stylesheet">
-	<script src="@scripts/index.js" defer="defer"></script>
 
-	{{! blocks for page-specific styles and scripts }}
+	{{! block for page-specific styles }}
 	{{#block 'styles'}}{{/block}}
-	{{#block 'scripts'}}{{/block}}
+
 </head>
 
 <body>
-	{{> header}}
+	<a class="skip-link" href="#content">Skip to content</a>
 
-	<div class="container">
-		{{! output content block defined in a parent template }}
-		{{#block 'content'}}{{/block}}
+	<div class="page">
+		{{> header}}
+
+		<main id="content">
+
+			{{! output content block defined in a parent template }}
+			{{#block 'content'}}{{/block}}
+
+		</main>
+
+		{{> footer }}
 	</div>
 
-	{{! if the block is not defined in a parent template, then output default content }}
-	{{#block 'custom_block'}}<p class="custom">default block content</p>{{/block}}
+	{{! general scripts }}
+	<script src="@scripts/index.js" defer></script>
 
-	{{> footer }}
+	{{! block for page-specific scripts }}
+	{{#block 'scripts'}}{{/block}}
+
 </body>
 
 </html>

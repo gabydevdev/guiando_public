@@ -1,0 +1,11 @@
+@use "dark-colors" as dark;
+
+@use "sprucecss/scss/spruce" with (
+	$colors: dark.$colors,
+	$settings: (
+		"css-custom-properties": true,
+		"color-fallback": false,
+		"html-smooth-scrolling": false,
+		"prefix": null,
+	)
+);

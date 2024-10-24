@@ -1,6 +1,7 @@
-$body-color: #6a5acd;
+@forward "config";
+@forward "components";
+@forward "layout";
+@forward "main";
+@forward "helper";
 
-body {
-	color: $body-color;
-	font-family: sans-serif;
-}
+@use "sprucecss/scss/spruce" as *;
