@@ -1,0 +1,9 @@
+@use 'sprucecss/scss/spruce' as *;
+
+@include generate-normalize;
+@include generate-root;
+@include generate-accessibility;
+@include generate-default;
+@include generate-media;
+@include generate-typography;
+@include generate-utilities;
