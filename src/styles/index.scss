@@ -1,7 +1,24 @@
 @forward "config";
-@forward "components";
 @forward "layout";
-@forward "main";
+@forward "components";
+@forward "sections";
 @forward "helper";
 
 @use "sprucecss/scss/spruce" as *;
+
+:root {
+  @include set-css-variable((
+	--logo-block-size: 3rem,
+    --sidebar-inline-size: 20rem,
+    --header-block-size: 6rem,
+    --container-gap: spacer-clamp('m', 'l')
+  ));
+}
+
+body {
+  overflow-x: hidden;
+}
+
+[x-cloak] {
+  visibility: hidden !important;
+}
