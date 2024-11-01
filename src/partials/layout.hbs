@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 	<meta charset="UTF-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -17,17 +18,20 @@
 <body>
 	<a class="skip-link" href="#content">Skip to content</a>
 
-	<div class="page">
-		{{> header}}
+	<div class="l-main">
+		<div class="l-main__sidebar">
+			{{> sidebar}}
+		</div>
+		<div class="l-main__body" data-item="body">
+			{{> header}}
 
-		<main id="content">
+			<main id="content">
+				{{! output content block defined in a parent template }}
+				{{#block 'content'}}{{/block}}
+			</main>
 
-			{{! output content block defined in a parent template }}
-			{{#block 'content'}}{{/block}}
-
-		</main>
-
-		{{> footer }}
+			{{> footer }}
+		</div>
 	</div>
 
 	{{! general scripts }}

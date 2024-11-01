@@ -1,3 +1,301 @@
-<h1>Requests</h1>
-<section>
-</section>
+<div class="container">
+	<div class="app-body">
+		<div class="app-card app-card--edit">
+			<div class="app-card__body">
+				<form action="https://forms.border.ventures/app/app/f?id=19" method="post" enctype="multipart/form-data" accept-charset="UTF-8" id="form-app">
+					<fieldset class="form-group-stack form-group-stack--bordered form-group-container">
+						<div class="form-row--mixed">
+							<!-- City -->
+							<div class="form-group required-control">
+								<label class="form-label" for="selectlist_1">City</label>
+								<select id="selectlist_1" name="selectlist_1[]" data-alias="" class="form-control" required="required">
+									<option value="Select One">Select One</option>
+									<option value="Tijuana" selected="selected">Tijuana</option>
+									<option value="Rosarito">Rosarito</option>
+									<option value="Tecate">Tecate</option>
+									<option value="Ensenada">Ensenada</option>
+									<option value="Valle de Guadalupe">Valle de Guadalupe</option>
+									<option value="Mexicali">Mexicali</option>
+								</select>
+							</div>
+
+							<!-- Tour Type -->
+							<div class="form-group required-control">
+								<label class="form-label" for="selectlist_2">Tour Type</label>
+								<select id="selectlist_2" name="selectlist_2[]" data-alias="" class="form-control" required="required">
+									<option value="Select One">Select One</option>
+									<option value="Cultural" selected="selected">Cultural</option>
+									<option value="Aventure">Aventure</option>
+								</select>
+							</div>
+						</div>
+						<!-- END .form-row--mixed -->
+
+						<div class="form-row--mixed">
+							<!-- Tour Theme -->
+							<div class="form-group required-control">
+								<label class="form-label" for="selectlist_3">Tour Theme</label>
+								<select id="selectlist_3" name="selectlist_3[]" data-alias="" class="form-control" required="required">
+									<option value="Select One">Select One</option>
+									<option value="City Tour">City Tour</option>
+									<option value="Food Tasting">Food Tasting</option>
+									<option value="Craft Beer Tasting">Craft Beer Tasting</option>
+									<option value="Wine Tasting">Wine Tasting</option>
+									<option value="Sightseeing">Sightseeing</option>
+									<option value="Art">Art</option>
+									<option value="Night Life">Night Life</option>
+									<option value="Other">Other</option>
+								</select>
+							</div>
+
+							<!-- Class -->
+							<div class="form-group required-control">
+								<label class="form-label" for="selectlist_4">Class</label>
+								<select id="selectlist_4" name="selectlist_4[]" data-alias="" class="form-control" required="required">
+									<option value="Select One">Select One</option>
+									<option value="Class A">Class A</option>
+									<option value="Class B">Class B</option>
+									<option value="Intro">Intro</option>
+									<option value="Walking">Walking</option>
+									<option value="Other">Other</option>
+								</select>
+							</div>
+						</div>
+						<!-- END .form-row--mixed -->
+
+						<div class="form-row--mixed">
+							<!-- PickUp Location -->
+							<div class="form-group required-control">
+								<label class="form-label" for="selectlist_5">PickUp Location</label>
+								<select id="selectlist_5" name="selectlist_5[]" data-alias="" class="form-control" required="required">
+									<option value="Select One">Select One</option>
+								</select>
+							</div>
+
+							<!-- DropOff Location -->
+							<div class="form-group required-control">
+								<label class="form-label" for="selectlist_6">DropOff Location</label>
+								<select id="selectlist_6" name="selectlist_6[]" data-alias="" class="form-control" required="required">
+									<option value="Select One">Select One</option>
+								</select>
+							</div>
+						</div>
+						<!-- END .form-row--mixed -->
+
+						<!-- Date Range -->
+						<div class="form-group required-control">
+							<div class="form-label">Date Range</div>
+							<div id="dateRange">
+								<div class="input-daterange">
+									<div class="form-group--stacked">
+										<label class="form-group-label" for="date_1">Start</label>
+										<input type="datetime-local" id="date_1" name="date_1" value="" data-alias="" class="form-control" required="required" />
+									</div>
+									<span class="form-group-text">to</span>
+									<div class="form-group--stacked">
+										<label class="form-group-label" for="date_2">End</label>
+										<input type="datetime-local" id="date_2" name="date_2" value="" data-alias="" class="form-control" required="required" />
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<p class="form-text help">Total Entries: <span id="totalEntries"></span></p>
+
+						<!-- Checkbox -->
+						<div class="col-lg-12">
+							<div class="form-group" id="bookings">
+								<label class="form-label" for="checkbox_2">Check All That Apply</label>
+								<table class="table table-striped table-hover text-center" id="checkbox_2">
+									<thead>
+										<tr>
+											<th>&nbsp;</th>
+											<th class="text-center">Booking ID</th>
+											<th class="text-center">Tour</th>
+											<th class="text-center">Traveler Name</th>
+											<th class="text-center">Tour Date</th>
+											<th class="text-center"># PAX</th>
+											<th class="text-center">Phone</th>
+										</tr>
+									</thead>
+									<tbody style="display: none"></tbody>
+								</table>
+							</div>
+						</div>
+
+						<!-- Number -->
+						<div class="col-lg-6">
+							<div class="form-group required-control" id="totalPax">
+								<label class="form-label" for="number_1">Total PAX #</label>
+								<input type="number" id="number_1" name="number_1" value="0" data-alias="" class="form-control" required="required" />
+							</div>
+						</div>
+
+						<!-- Number -->
+						<div class="col-lg-6">
+							<div class="form-group required-control">
+								<label class="form-label" for="number_2">Traveler Budget</label>
+								<input type="number" id="number_2" name="number_2" value="" data-alias="" class="form-control" required="required" />
+							</div>
+						</div>
+
+						<!-- Number -->
+						<div class="col-lg-12">
+							<div class="form-group required-control">
+								<label class="form-label" for="number_3">Total Traveler Budget</label>
+								<input type="number" id="number_3" name="number_3" value="" data-alias="" class="form-control" required="required" />
+							</div>
+						</div>
+
+						<!-- Text Area -->
+						<div class="col-lg-12">
+							<div class="form-group">
+								<label class="form-label" for="textarea_1">Special Indications for tour and travelers</label>
+								<textarea id="textarea_1" name="textarea_1" rows="3" data-alias="" class="form-control"></textarea>
+							</div>
+						</div>
+
+						<!-- Checkbox -->
+						<div class="col-lg-6">
+							<div class="form-group required-control">
+								<label class="form-label" for="checkbox_1">Assign Local Guide</label>
+								<div class="form-check">
+									<input type="checkbox" name="checkbox_1[]" id="checkbox_1_0" class="form-check-input" value="Tadeo" data-alias="" data-required="true" />
+									<label for="checkbox_1_0" class="form-check-label"> Tadeo </label>
+								</div>
+								<div class="form-check">
+									<input type="checkbox" name="checkbox_1[]" id="checkbox_1_1" class="form-check-input" value="Alex" data-alias="" data-required="true" />
+									<label for="checkbox_1_1" class="form-check-label"> Alex </label>
+								</div>
+								<div class="form-check">
+									<input type="checkbox" name="checkbox_1[]" id="checkbox_1_2" class="form-check-input" value="Victor" data-alias="" data-required="true" />
+									<label for="checkbox_1_2" class="form-check-label"> Victor </label>
+								</div>
+								<div class="form-check">
+									<input type="checkbox" name="checkbox_1[]" id="checkbox_1_3" class="form-check-input" value="Marisol" data-alias="" data-required="true" />
+									<label for="checkbox_1_3" class="form-check-label"> Marisol </label>
+								</div>
+								<div class="form-check">
+									<input type="checkbox" name="checkbox_1[]" id="checkbox_1_4" class="form-check-input" value="Andres" data-alias="" data-required="true" />
+									<label for="checkbox_1_4" class="form-check-label"> Andres </label>
+								</div>
+								<div class="form-check">
+									<input type="checkbox" name="checkbox_1[]" id="checkbox_1_5" class="form-check-input" value="Humberto" data-alias="" data-required="true" />
+									<label for="checkbox_1_5" class="form-check-label"> Humberto </label>
+								</div>
+								<span id="checkbox_1"></span>
+							</div>
+						</div>
+
+						<!-- Radio -->
+						<div class="col-lg-6">
+							<div class="form-group required-control">
+								<label class="form-label" for="radio_1">Is there any other extra expense, select the reason</label>
+								<div class="form-check">
+									<input type="radio" name="radio_1" id="radio_1_0" class="form-check-input" value="None" data-alias="" data-required="true" />
+									<label for="radio_1_0" class="form-check-label"> None </label>
+								</div>
+								<div class="form-check">
+									<input type="radio" name="radio_1" id="radio_1_1" class="form-check-input" value="Training Local Guide" data-alias="" data-required="true" />
+									<label for="radio_1_1" class="form-check-label"> Training Local Guide </label>
+								</div>
+								<div class="form-check">
+									<input type="radio" name="radio_1" id="radio_1_2" class="form-check-input" value="Extra Expenses" data-alias="" data-required="true" />
+									<label for="radio_1_2" class="form-check-label"> Extra Expenses </label>
+								</div>
+								<div class="form-check">
+									<input type="radio" name="radio_1" id="radio_1_3" class="form-check-input" value="Other" data-alias="" data-required="true" />
+									<label for="radio_1_3" class="form-check-label"> Other </label>
+								</div>
+								<span id="radio_1"></span>
+							</div>
+						</div>
+
+						<!-- Number -->
+						<div class="col-lg-12">
+							<div class="form-group">
+								<label class="form-label" for="number_4">Extra Expenses</label>
+								<input type="number" id="number_4" name="number_4" value="" data-alias="" class="form-control" />
+							</div>
+						</div>
+
+						<!-- Number -->
+						<div class="col-lg-6">
+							<div class="form-group required-control">
+								<label class="form-label" for="number_6">Total Local Guide 1 Payment</label>
+								<input type="number" id="number_6" name="number_6" value="" data-alias="" class="form-control" required="required" />
+							</div>
+						</div>
+
+						<!-- Number -->
+						<div class="col-lg-6">
+							<div class="form-group">
+								<label class="form-label" for="number_5">Total Local Guide 2 Payment</label>
+								<input type="number" id="number_5" name="number_5" value="" data-alias="" class="form-control" />
+							</div>
+						</div>
+
+						<!-- Text Area -->
+						<div class="col-lg-12">
+							<div class="form-group">
+								<label class="form-label" for="textarea_2">Adjustment Notes</label>
+								<textarea id="textarea_2" name="textarea_2" rows="3" data-alias="" class="form-control"></textarea>
+							</div>
+						</div>
+
+						<!-- Number -->
+						<div class="col-lg-12">
+							<div class="form-group required-control">
+								<label class="form-label" for="number_8">Total Cost</label>
+								<input type="number" id="number_8" name="number_8" value="" data-alias="" class="form-control" required="required" />
+							</div>
+						</div>
+
+						<!-- Paragraph Text -->
+						<div class="col-lg-12">
+							<p>You can edit this paragraph by clicking here.</p>
+						</div>
+
+						<!-- Signature -->
+						<div class="col-lg-6">
+							<div class="form-group">
+								<label class="form-label" for="signature_2">Local Guide 1 Signature</label>
+								<div class="signature-pad">
+									<canvas id="signature_2" width="400" height="200" data-color="White"></canvas>
+								</div>
+								<div class="signature-pad-actions">
+									<button type="button" id="clear_signature_2" name="clear_signature_2" class="btn btn-sm btn-default btn-clear" data-exclude="true">Clear</button>
+									<button type="button" id="undo_signature_2" name="undo_signature_2" class="btn btn-sm btn-default btn-undo" data-exclude="true">Undo</button>
+								</div>
+								<input type="text" style="display: none" name="hidden_signature_2" id="hidden_signature_2" value="" data-alias="" data-label="Local Guide 1 Signature" />
+							</div>
+						</div>
+
+						<!-- Signature -->
+						<div class="col-lg-6">
+							<div class="form-group">
+								<label class="form-label" for="signature_1">Local Guide 2 Signature</label>
+								<div class="signature-pad">
+									<canvas id="signature_1" width="400" height="200" data-color="White"></canvas>
+								</div>
+								<div class="signature-pad-actions">
+									<button type="button" id="clear_signature_1" name="clear_signature_1" class="btn btn-sm btn-default btn-clear" data-exclude="true">Clear</button>
+									<button type="button" id="undo_signature_1" name="undo_signature_1" class="btn btn-sm btn-default btn-undo" data-exclude="true">Undo</button>
+								</div>
+								<input type="text" style="display: none" name="hidden_signature_1" id="hidden_signature_1" value="" data-alias="" data-label="Local Guide 2 Signature" />
+							</div>
+						</div>
+
+						<!-- Button -->
+						<div class="col-lg-12">
+							<div class="form-action">
+								<button type="submit" id="button_1" name="button_1" class="btn btn-primary">Submit</button>
+							</div>
+						</div>
+					</fieldset>
+					<div class="" style="display: none"><label class="control-label" for="_email">Excuse me, but leave this field in blank</label><input type="text" id="_email" class="form-control" name="_email" /></div>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
