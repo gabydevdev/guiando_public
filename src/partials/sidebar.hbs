@@ -1,13 +1,11 @@
-<aside class="app-sidebar">
+<aside class="app-sidebar" @keyup.escape.window="sidebarOpen = false" x-trap.noscroll="sidebarOpen">
 	<div class="app-sidebar__header">
-		<a class="app-sidebar__logo" href="{{webRoot}}" aria-label="">
-			<img src="@images/logo.svg" alt="logo" class="brand-logo">
-		</a>
+		{{> logo className="app-sidebar__logo" }}
 		<div class="app-sidebar__search">
 
 		</div>
-		<button aria-label="Close navigation" class="btn btn--outline-dark btn--sm btn--icon display--none:md">
-
+		<button class="btn btn--outline-dark btn--sm btn--icon display--none:md" aria-label="Close navigation">
+			<img src="@images/icons/close.svg" class="btn__icon">
 		</button>
 	</div>
 	<div class="app-sidebar__body">
