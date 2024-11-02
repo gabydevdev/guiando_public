@@ -19,13 +19,15 @@ function generateEntries(directory) {
 	const entries = {};
 
 	files.forEach((file) => {
-		console.log(file);
+		// console.log(file);
 
 		const name = Path.parse(file).name;
 		if (Path.extname(file) == '.hbs') {
 			entries[name] = Path.join(directory, file);
 		}
 	});
+
+	console.log('entries: ', entries);
 
 	return entries;
 }
@@ -58,22 +60,7 @@ module.exports = {
 		new CleanWebpackPlugin(),
 		new HtmlBundlerPlugin({
 			entry: generateEntries(pagesDirectory),
-			// data: 'src/data/global.js',
-			data: (filePath) => {
-				// Calculate `currentPageUrl` based on the file name
-				const fileName = Path.parse(filePath).name;
-				let currentPageUrl = `/${fileName}.html`;
-				if (fileName === 'home') {
-					currentPageUrl = '/';
-				}
-
-				// Load global data and inject currentPageUrl
-				const globalData = require('./src/data/global.js');
-				return {
-					...globalData,
-					currentPageUrl,
-				};
-			},
+			data: 'src/data/global.js',
 			preprocessor: 'handlebars',
 			preprocessorOptions: {
 				helpers: [Path.join(__dirname, 'src/helpers')],
