@@ -16,17 +16,7 @@
 					{{!-- {% svgIcon './src/img/icon/chevron-up.svg', 'btn__icon' %} --}}
 				</button>
 			</h3>
-			{{#if pages}}
-			<nav class="block-navigation__menu block-navigation__menu--breakout">
-				<ul class="navigation-menu">
-					{{#each pages}}
-						<li>
-							<a href="{{url}}">{{title}}</a>
-						</li>
-					{{/each}}
-				</ul>
-			</nav>
-			{{/if}}
+			{{> menu }}
 		</div>
 	</div>
 </aside>
