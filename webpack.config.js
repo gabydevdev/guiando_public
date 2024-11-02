@@ -19,15 +19,13 @@ function generateEntries(directory) {
 	const entries = {};
 
 	files.forEach((file) => {
-		// console.log(file);
+		console.log(file);
 
 		const name = Path.parse(file).name;
 		if (Path.extname(file) == '.hbs') {
 			entries[name] = Path.join(directory, file);
 		}
 	});
-
-	console.log('entries: ', entries);
 
 	return entries;
 }
