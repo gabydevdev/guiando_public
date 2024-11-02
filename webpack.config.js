@@ -117,6 +117,7 @@ module.exports = {
 	},
 	devServer: {
 		port: 8000,
+		liveReload: true,
 		open: true,
 		static: Path.resolve(__dirname, 'build'),
 		watchFiles: {
