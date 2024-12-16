@@ -1,5 +1,6 @@
 // src/data/global.js
 const crypto = require('crypto');
+const baseUrl = process.env.BASE_URL_PATH;
 
 module.exports = {
 	random() {
@@ -10,6 +11,7 @@ module.exports = {
 		return date.getFullYear();
 	},
 	webRoot: '',
+	baseUrl: baseUrl,
 	pageTitle: 'Default Page',
 	currentPageUrl: '',
 	site: {
