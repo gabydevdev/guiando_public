@@ -3,7 +3,7 @@
 		<ul class="navigation-menu">
 			{{#each pages}}
 				<li>
-					<a href="{{url}}" {{getLinkActiveState this.url ../currentPageUrl}}>
+					<a href="{{../baseUrl}}{{url}}" {{getLinkActiveState this.url ../currentPageUrl}}>
 						{{title}}
 					</a>
 				</li>
