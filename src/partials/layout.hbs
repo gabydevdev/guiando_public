@@ -8,7 +8,7 @@
 	<title>{{pageTitle}}</title>
 
 	{{! general style }}
-	<link href="@styles/index.scss" rel="stylesheet">
+	<link href="@styles/main.scss" rel="stylesheet">
 
 	{{! block for page-specific styles }}
 	{{#block 'styles'}}{{/block}}
@@ -22,16 +22,18 @@
 		<div class="l-main__sidebar">
 			{{> sidebar}}
 		</div>
-		<div class="l-main__body" data-item="body">
+		<main class="l-main__body" data-item="body">
 			{{> header}}
 
-			<main id="content">
-				{{! output content block defined in a parent template }}
-				{{#block 'content'}}{{/block}}
-			</main>
+			<div class="container">
+				<div class="app-body">
+					{{! output content block defined in a parent template }}
+					{{#block 'content'}}{{/block}}
+				</div>
+			</div>
 
 			{{> footer }}
-		</div>
+		</main>
 	</div>
 
 	{{! general scripts }}

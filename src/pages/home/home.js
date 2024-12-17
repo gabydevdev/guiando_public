@@ -1,6 +1,7 @@
 // home.js
 console.log('>> Home page');
 
+/*
 import { apiUrl } from '@scripts/index.js';
 import { fetchDataFromAPI } from '@scripts/apiManager.js';
 
@@ -45,3 +46,4 @@ document.addEventListener('DOMContentLoaded', async function () {
 
 // 	return productId;
 // }
+*/

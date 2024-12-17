@@ -2,17 +2,17 @@
 
 {{! define the block with page-specific styles }}
 {{#partial 'styles'}}
-<link href="./index/index.scss" rel="stylesheet">
+<link href="./home/home.scss" rel="stylesheet">
 {{/partial}}
 
 {{! define the block with page-specific scripts }}
 {{#partial 'scripts'}}
-<script src="./index/index.js" defer></script>
+<script src="./home/home.js" defer></script>
 {{/partial}}
 
 {{! define the block content: include the `content.hbs` partial }}
 {{#partial 'content'}}
-{{> index/content}}
+{{> home/content}}
 {{/partial}}
 
 {{! extends the layout template with blocks defined above }}
