@@ -9,7 +9,7 @@
 	padding-block: 0 spacer("m");
 
 	&__logo {
-		display: block;
+		display: inline-flex;
 		color: color("heading");
 
 		img,
@@ -34,7 +34,7 @@
 		display: flex;
 		flex-shrink: 0;
 		justify-content: space-between;
-		margin-inline: spacer("m");
+		padding-inline: spacer("m");
 	}
 
 	&__body {
