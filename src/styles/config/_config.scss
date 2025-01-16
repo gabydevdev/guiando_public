@@ -6,7 +6,6 @@ $color-primary: hsl(238deg 100% 50%);
 $color-secondary: hsl(186deg 100% 60%);
 
 $font-base: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
-
 $font-size-sm: 0.875rem;
 
 @use "sprucecss/scss/spruce" with (
@@ -24,9 +23,10 @@ $font-size-sm: 0.875rem;
 	$typography: (
 		"font-family-base": $font-base,
 		"font-family-heading": null,
+		'font-size-base': 0.9rem,
 		"font-size-lead": clamp(1.1rem, 2vw, 1.25rem),
 		'font-size-sm': $font-size-sm,
-		"font-weight-heading": 500,
+		'font-weight-heading': 600,
 	),
 	$btn: (
 		"font-weight": 700,

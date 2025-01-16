@@ -1,8 +1,9 @@
-@forward "config";
-@forward "layout";
-@forward "components";
-@forward "sections";
-@forward "helper";
+@forward 'config';
+@forward 'layout';
+@forward 'components';
+@forward 'sections';
+@forward 'extend';
+@forward 'helper';
 
 @use "sprucecss/scss/spruce" as *;
 
