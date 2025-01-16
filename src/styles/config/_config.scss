@@ -20,20 +20,31 @@ $font-size-sm: 0.875rem;
 			"typography": false,
 		),
 	),
+	$breakpoints: (
+		"xs":  32em,                      // 512px - Extra Small Devices (e.g. small phones)
+		"sm":  48em,                      // 768px - Small Devices (e.g. larger phones)
+		"md":  64em,                      // 1024px - Medium Devices (e.g. tablets)
+		"lg":  80em,                      // 1280px - Large Devices (e.g. small laptops)
+		"xl":  90em,                      // 1440px - Extra Large Devices (e.g. desktops)
+		"xxl": 110em,                     // 1760px - Wide Devices (e.g. large desktops)
+	),
 	$typography: (
 		"font-family-base": $font-base,
 		"font-family-heading": null,
-		'font-size-base': 0.9rem,
+		"font-size-base": 0.9rem,
 		"font-size-lead": clamp(1.1rem, 2vw, 1.25rem),
-		'font-size-sm': $font-size-sm,
-		'font-weight-heading': 600,
+		"font-size-sm": $font-size-sm,
+		"font-weight-heading": 600,
 	),
 	$btn: (
 		"font-weight": 700,
 		"padding": 0.75em 1.5em,
 	),
 	$form-label: (
-		'font-size': $font-size-sm,
-		'font-weight': 500,
+		"font-size": $font-size-sm,
+		"font-weight": 500,
+	),
+	$layout: (
+		"container-inline-size": 84rem,   // 1344px
 	)
 );

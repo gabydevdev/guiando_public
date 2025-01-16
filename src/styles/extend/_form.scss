@@ -5,7 +5,11 @@
 @include generate-form-fieldset;
 @include generate-form-group-label;
 @include generate-form-group;
-@include generate-form-row;
+
+.form-row {
+	--inline-size: 1px;
+	@include layout-flex("s");
+}
 
 .form-group-stack {
 	@include layout-stack("s");
