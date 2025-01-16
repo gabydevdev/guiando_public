@@ -1,33 +1,40 @@
-<div class="l-main">
-	<div class="container">
-		<div class="l-main__inner">
-			<div class="app-card">
-				<div class="app-card__header">
-					<div class="app-card__actions">	</div>
-				</div>
-				<div class="app-card__body">
-					<div class="data-table">
-						<div class="table-responsive">
-							<table class="table table--striped table--hover" id="bookingsTable">
-								<thead>
-									<tr>
-										<th scope="col">Status</th>
-										<th scope="col">Booking Id</th>
-										<th scope="col">Created On</th>
-										<th scope="col">SKU</th>
-										<th scope="col">Travel Date</th>
-										<th scope="col">PAX</th>
-										<th scope="col">Total Price</th>
-									</tr>
-								</thead>
-								<tbody></tbody>
-							</table>
-						</div>
-						<div class="data-table__footer">	</div>
-					</div>
+<div class="app-card">
+	<div class="app-card__header">
+		<div class="app-card__actions">
+			<form id="filterForm">
+				<label for="startDateFrom">Start Date From:</label>
+				<input type="date" id="startDateFrom" name="startDateFrom">
+				<label for="startDateTo">Start Date To:</label>
+				<input type="date" id="startDateTo" name="startDateTo">
+				<button class="btn btn--primary" type="submit">Filter</button>
+			</form>
+		</div>
+	</div>
+	<div class="app-card__body">
+		<div class="data-table">
+			<div class="table-responsive">
+				<table class="table table--striped table--hover" id="bookingsTable">
+					<thead>
+						<tr>
+							<th scope="col" data="status">Status</th>
+							<th scope="col" data="parentBookingId">Booking Id</th>
+							<th scope="col" data="productExternalId">SKU</th>
+							<th scope="col" data="customer__firstName customer__lastName">Customer</th>
+							<th scope="col" data="totalParticipants">PAX</th>
+							<th scope="col" data="totalPrice">Total Price</th>
+							<th scope="col" data="startDate">Start Date</th>
+							<th scope="col" data="seller__title">Seller</th>
+						</tr>
+					</thead>
+					<tbody></tbody>
+				</table>
+			</div>
+			<div class="data-table__footer">
+				<div id="pagination">
+					<button data-action="prev">Previous</button>
+					<button data-action="next">Next</button>
 				</div>
 			</div>
 		</div>
-
 	</div>
 </div>
