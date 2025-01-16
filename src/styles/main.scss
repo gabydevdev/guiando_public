@@ -7,18 +7,23 @@
 @use "sprucecss/scss/spruce" as *;
 
 :root {
-  @include set-css-variable((
-	--logo-block-size: 3rem,
-    --sidebar-inline-size: 20rem,
-    --header-block-size: 6rem,
-    --container-gap: spacer-clamp('m', 'l')
-  ));
+	@include set-css-variable(
+		(
+			--section-gap: clamp(5rem, 7vw, 7rem),
+			--container-gap: spacer-clamp("m", "l"),
+			--max-content-inline-size: 70rem,
+			--sidebar-inline-size: 18rem,
+			--logo-block-size: 3rem,
+			--header-block-size: 6rem,
+			--box-shadow: 0 0.75rem 1.25rem hsl(0 0% 0% / 5%),
+		)
+	);
 }
 
 body {
-  overflow-x: hidden;
+	overflow-x: hidden;
 }
 
 [x-cloak] {
-  visibility: hidden !important;
+	visibility: hidden !important;
 }
