@@ -1,6 +1,8 @@
 @use "sass:color";
 @use "sprucecss/scss/spruce" as *;
 
+@include generate-table;
+
 .data-table {
 	overflow: hidden;
 	position: relative;
