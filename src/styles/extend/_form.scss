@@ -9,29 +9,12 @@
 .form-row {
 	--inline-size: 1px;
 	@include layout-flex("s");
-}
+	flex-direction: column;
+	align-items: flex-end;
 
-.form-group-stack {
-	@include layout-stack("s");
-
-	&--bordered {
-		> * + * {
-			border-block-start: 1px solid color("border");
-			padding-block-start: spacer("s");
-		}
+	@include breakpoint("md") {
+		flex-direction: row;
 	}
-}
-
-legend {
-	font-family: config("font-family-heading", $typography);
-}
-
-.form-control[type="color"] {
-	@include set-css-variable(
-		(
-			--border-radius: spacer-clamp("m", "l"),
-		)
-	);
 }
 
 .required-marker {
