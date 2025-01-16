@@ -1,5 +1,9 @@
 @use "sprucecss/scss/spruce" as *;
 
+@include generate-form-label;
+
+@include generate-form-control(".form-control", true, true, true);
+
 .form-group-stack {
 	@include layout-stack("s");
 

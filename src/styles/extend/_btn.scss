@@ -1,6 +1,15 @@
 @use "sass:color";
 @use "sprucecss/scss/spruce" as *;
 
+@include generate-btn(".btn");
+
+.btn--primary {
+	@include btn-variant(primary);
+}
+.btn--secondary {
+	@include btn-variant(secondary);
+}
+
 .btn {
 	&--counter {
 		position: relative;
