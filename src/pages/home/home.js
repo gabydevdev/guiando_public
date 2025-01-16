@@ -62,7 +62,7 @@ function populateBookingsTable(data) {
 	data.forEach(booking => {
 		const row = document.createElement('tr');
 
-		const formattedDate = new Date(booking.startDate).toLocaleString();
+		const formattedDate = new Date(booking.startDate).toLocaleDateString();
 		const formattedPrice = new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(booking.totalPrice);
 
 		row.innerHTML = `
@@ -73,6 +73,8 @@ function populateBookingsTable(data) {
 			<td>${booking.totalParticipants}</td>
 			<td>${formattedPrice}</td>
 			<td>${formattedDate}</td>
+			<td>${booking.fields.startTimeStr}</td>
+			<td>${booking.seller.title}</td>
 		`;
 
 		tableBody.appendChild(row);
