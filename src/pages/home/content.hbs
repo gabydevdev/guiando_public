@@ -1,11 +1,15 @@
 <div class="app-card">
 	<div class="app-card__header">
 		<div class="app-card__actions">
-			<form id="filterForm">
-				<label for="startDateFrom">Start Date From:</label>
-				<input type="date" id="startDateFrom" name="startDateFrom">
-				<label for="startDateTo">Start Date To:</label>
-				<input type="date" id="startDateTo" name="startDateTo">
+			<form class="form-row" id="filterForm">
+				<div class="form-group">
+					<label for="startDateFrom" class="form-label">Start Date From:</label>
+					<input class="form-control" type="date" id="startDateFrom" name="startDateFrom">
+				</div>
+				<div class="form-group">
+					<label for="startDateTo" class="form-label">Start Date To:</label>
+					<input class="form-control" type="date" id="startDateTo" name="startDateTo">
+				</div>
 				<button class="btn btn--primary" type="submit">Filter</button>
 			</form>
 		</div>
@@ -23,6 +27,7 @@
 							<th scope="col" data="totalParticipants">PAX</th>
 							<th scope="col" data="totalPrice">Total Price</th>
 							<th scope="col" data="startDate">Start Date</th>
+							<th scope="col" data="fields__startTimeStr">Start Time</th>
 							<th scope="col" data="seller__title">Seller</th>
 						</tr>
 					</thead>
@@ -30,10 +35,22 @@
 				</table>
 			</div>
 			<div class="data-table__footer">
-				<div id="pagination">
-					<button data-action="prev">Previous</button>
-					<button data-action="next">Next</button>
+				<div class="data-table__footer-column">
+					<div class="form-group">
+						<label for="pageSize" class="sr-only">Number of results</label>
+						<select name="pageSize" id="pageSize" class="form-control form-control--sm">
+							<option value="10">10</option>
+							<option value="20">20</option>
+							<option value="50">50</option>
+							<option value="100">100</option>
+						</select>
+					</div>
+					<p id="resultsCount">Showing 1 to 10 of 20 results</p>
 				</div>
+				<ul class="pagination__links" id="pagination">
+					<li><button data-action="prev" class="btn btn--sm btn--outline-primary">Prev</button></li>
+					<li><button data-action="next" class="btn btn--sm btn--outline-primary">Next</button></li>
+				</ul>
 			</div>
 		</div>
 	</div>
