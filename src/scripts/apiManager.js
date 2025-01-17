@@ -47,25 +47,25 @@ export async function fetchDataFromAPI(apiURL, params = {}) {
 	const signature = hash.toString(CryptoJS.enc.Base64);
 
 	const myHeaders = new Headers();
-	myHeaders.append("X-Bokun-AccessKey", bokunAccessKey);
-	myHeaders.append("X-Bokun-Date", bokunDate);
-	myHeaders.append("X-Bokun-Signature", signature);
-	myHeaders.append("Content-Type", contentType);
+	myHeaders.append('X-Bokun-AccessKey', bokunAccessKey);
+	myHeaders.append('X-Bokun-Date', bokunDate);
+	myHeaders.append('X-Bokun-Signature', signature);
+	myHeaders.append('Content-Type', contentType);
 
 	const raw = JSON.stringify({
-		"excludeComboBookings": params.excludeComboBookings || false,
-		"page": params.page || 0,
-		"pageSize": params.pageSize || 10000,
-		"startDateRange": {
-			"from": params.startDateRange?.from || "2024-12-19T05:21:48Z"
-		}
+		excludeComboBookings: params.excludeComboBookings || false,
+		page: params.page || 0,
+		pageSize: params.pageSize || 10000,
+		startDateRange: {
+			from: params.startDateRange?.from || '2024-12-19T05:21:48Z',
+		},
 	});
 
 	const requestOptions = {
 		method: httpMethod,
 		headers: myHeaders,
 		body: raw,
-		redirect: "follow"
+		redirect: 'follow',
 	};
 
 	const response = await fetch(apiURL, requestOptions);
