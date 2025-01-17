@@ -54,6 +54,12 @@ module.exports = {
 			),
 			'process.env.API_URL': JSON.stringify(process.env.API_URL),
 			'process.env.FORM_URL': JSON.stringify(process.env.FORM_URL),
+			'process.env.X_BOKUN_ACCESS_KEY': JSON.stringify(
+				process.env.X_BOKUN_ACCESS_KEY
+			),
+			'process.env.X_BOKUN_SECRET_KEY': JSON.stringify(
+				process.env.X_BOKUN_SECRET_KEY
+			),
 		}),
 		new CleanWebpackPlugin(),
 		new HtmlBundlerPlugin({

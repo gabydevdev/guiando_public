@@ -31,9 +31,16 @@ import CryptoJS from 'crypto-js';
  *   .catch(error => console.error(error));
  */
 export async function fetchDataFromAPI(apiURL, params = {}) {
-	const bokunAccessKey = (typeof process !== 'undefined' && process.env.X_BOKUN_ACCESS_KEY) || "06b7da340a284ed1ada016d0c1c903f9";
-	const bokunSecretKey = (typeof process !== 'undefined' && process.env.X_BOKUN_SECRET_KEY) || "11174ed1bd52433a9375d504f01cd07b";
-	const sessionId = (typeof process !== 'undefined' && process.env.SESSION_ID) || "86d4aa28-d57b-429c-a241-14ff34037974";
+	const bokunAccessKey = process.env.X_BOKUN_ACCESS_KEY;
+	const bokunSecretKey = process.env.X_BOKUN_SECRET_KEY;
+
+	if (!bokunAccessKey || !bokunSecretKey) {
+		const errorMessageElement = document.getElementById('error-message');
+		if (errorMessageElement) {
+			errorMessageElement.innerText = 'Error: Missing Bokun API keys.';
+		}
+		return;
+	}
 
 	const d = new Date();
 	const bokunDate = d.toISOString().split('.')[0].split('T').join(' ');
