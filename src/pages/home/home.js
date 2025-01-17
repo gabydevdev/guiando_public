@@ -4,14 +4,21 @@ import { fetchDataFromAPI } from "../../scripts/apiManager";
 console.log('>> Home page');
 
 const bokunURL = 'https://api.bokun.io/booking.json/product-booking-search';
-let currentPage = 0;
-const pageSize = 10;
+let currentPage = 1;
+let pageSize = 10;
 
 document.addEventListener('DOMContentLoaded', () => {
 	loadBookings();
 
 	document.querySelector('#filterForm').addEventListener('submit', event => {
 		event.preventDefault();
+		currentPage = 1; // Reset to first page when filters change
+		loadBookings();
+	});
+
+	document.querySelector('#pageSize').addEventListener('change', event => {
+		pageSize = parseInt(event.target.value, 10);
+		currentPage = 1; // Reset to first page when page size changes
 		loadBookings();
 	});
 
@@ -27,7 +34,7 @@ document.addEventListener('DOMContentLoaded', () => {
 			const action = event.target.getAttribute('data-action');
 			if (action === 'next') {
 				currentPage++;
-			} else if (action === 'prev' && currentPage > 0) {
+			} else if (action === 'prev' && currentPage > 1) {
 				currentPage--;
 			}
 			loadBookings();
@@ -51,6 +58,7 @@ function loadBookings(options = {}) {
 		.then(response => {
 			console.log(response);
 			populateBookingsTable(response.results || []); // Adjust this line based on the actual structure of your API response
+			updateResultsCount(response.totalHits || 0);
 		})
 		.catch(error => console.error(error));
 }
@@ -79,4 +87,15 @@ function populateBookingsTable(data) {
 
 		tableBody.appendChild(row);
 	});
+}
+
+function updateResultsCount(totalCount) {
+	const resultsCount = document.querySelector('#resultsCount');
+	if (totalCount === 0) {
+		resultsCount.textContent = 'No results found';
+	} else {
+		const start = currentPage * pageSize + 1;
+		const end = Math.min((currentPage + 1) * pageSize, totalCount);
+		resultsCount.textContent = `Showing ${start} to ${end} of ${totalCount} results`;
+	}
 }
