@@ -19,7 +19,7 @@ function generateEntries(directory) {
 	const entries = {};
 
 	files.forEach((file) => {
-		console.log(file);
+		// console.log(file);
 
 		const name = Path.parse(file).name;
 		if (Path.extname(file) == '.hbs') {
@@ -49,7 +49,9 @@ module.exports = {
 	plugins: [
 		new Webpack.DefinePlugin({
 			'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV),
-			'process.env.BASE_URL_PATH': JSON.stringify(process.env.BASE_URL_PATH),
+			'process.env.BASE_URL_PATH': JSON.stringify(
+				process.env.BASE_URL_PATH
+			),
 			'process.env.API_URL': JSON.stringify(process.env.API_URL),
 			'process.env.FORM_URL': JSON.stringify(process.env.FORM_URL),
 		}),
@@ -70,14 +72,17 @@ module.exports = {
 			},
 			verbose: true,
 		}),
+		// Only log in development mode
 		function () {
-			console.log('NODE_ENV: ', process.env.NODE_ENV);
-			console.log('isDev: ', isDev);
-			console.log(
-				'Resolved .env path: ',
-				Path.resolve(__dirname, `.env.${process.env.NODE_ENV}`)
-			);
-			console.log('BASE_URL_PATH: ', process.env.BASE_URL_PATH);
+			if (isDev) {
+				console.log('NODE_ENV: ', process.env.NODE_ENV);
+				console.log('isDev: ', isDev);
+				console.log(
+					'Resolved .env path: ',
+					Path.resolve(__dirname, `.env.${process.env.NODE_ENV}`)
+				);
+				console.log('BASE_URL_PATH: ', process.env.BASE_URL_PATH);
+			}
 		},
 	],
 	module: {
@@ -116,6 +121,19 @@ module.exports = {
 			},
 		],
 	},
+	ignoreWarnings: [
+		{
+			message: /Deprecation Warning/,
+		},
+		{
+			message: /repetitive deprecation warnings omitted/,
+		},
+	],
+	// stats: {
+	// 	all: true,
+	// 	warnings: true,
+	// 	errors: true,
+	// },
 	devServer: {
 		port: 8000,
 		liveReload: true,
