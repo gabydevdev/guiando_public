@@ -49,17 +49,11 @@ module.exports = {
 	plugins: [
 		new Webpack.DefinePlugin({
 			'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV),
-			'process.env.BASE_URL_PATH': JSON.stringify(
-				process.env.BASE_URL_PATH
-			),
+			'process.env.BASE_URL_PATH': JSON.stringify(process.env.BASE_URL_PATH),
 			'process.env.API_URL': JSON.stringify(process.env.API_URL),
+			'process.env.X_BOKUN_ACCESS_KEY': JSON.stringify(process.env.X_BOKUN_ACCESS_KEY),
+			'process.env.X_BOKUN_SECRET_KEY': JSON.stringify(process.env.X_BOKUN_SECRET_KEY),
 			'process.env.FORM_URL': JSON.stringify(process.env.FORM_URL),
-			'process.env.X_BOKUN_ACCESS_KEY': JSON.stringify(
-				process.env.X_BOKUN_ACCESS_KEY
-			),
-			'process.env.X_BOKUN_SECRET_KEY': JSON.stringify(
-				process.env.X_BOKUN_SECRET_KEY
-			),
 		}),
 		new CleanWebpackPlugin(),
 		new HtmlBundlerPlugin({
@@ -83,10 +77,7 @@ module.exports = {
 			if (isDev) {
 				console.log('NODE_ENV: ', process.env.NODE_ENV);
 				console.log('isDev: ', isDev);
-				console.log(
-					'Resolved .env path: ',
-					Path.resolve(__dirname, `.env.${process.env.NODE_ENV}`)
-				);
+				console.log('Resolved .env path: ', Path.resolve(__dirname, `.env.${process.env.NODE_ENV}`));
 				console.log('BASE_URL_PATH: ', process.env.BASE_URL_PATH);
 			}
 		},
