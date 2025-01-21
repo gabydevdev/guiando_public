@@ -1,6 +1,7 @@
 {
 	"tabWidth": 4,
 	"useTabs": true,
+	"printWidth": 9999,
 	"overrides": [
 		{
 			"files":["*.js"],
