@@ -1,0 +1,65 @@
+<div class="app-card">
+	<div class="app-card__header">
+		<p id="totalCount"></p>
+		<div class="app-card__actions">
+			<form class="form-row" id="filterForm">
+				<div class="form-group">
+					<label for="startDateFrom" class="form-label">Start Date From:</label>
+					<input class="form-control" type="datetime-local" id="startDateFrom" name="startDateFrom">
+				</div>
+				<div class="form-group">
+					<label for="startDateTo" class="form-label">Start Date To:</label>
+					<input class="form-control" type="datetime-local" id="startDateTo" name="startDateTo">
+				</div>
+				<button class="btn btn--primary" type="submit">Filter</button>
+			</form>
+		</div>
+	</div>
+	<div class="app-card__body">
+		<div class="data-table">
+
+			{{> alerts}}
+
+			<div class="table-responsive">
+				<table class="table table--striped table--hover" id="bookingsTable">
+					<thead>
+						<tr>
+							<th scope="col" data="status">Status</th>
+							<th scope="col" data="parentBookingId">Booking Id</th>
+							<th scope="col" data="productExternalId">SKU</th>
+							<th scope="col" data="customer__firstName customer__lastName">Customer</th>
+							<th scope="col" data="totalParticipants">PAX</th>
+							<th scope="col" data="totalPrice">Total Price</th>
+							<th scope="col" data="startDate">Start Date</th>
+							<th scope="col" data="fields__startTimeStr">Start Time</th>
+							<th scope="col" data="startDateTime">Start Date Time</th>
+							<th scope="col" data="seller__title">Seller</th>
+						</tr>
+					</thead>
+					<tbody></tbody>
+				</table>
+			</div>
+
+			<div class="data-table__footer">
+				<div class="data-table__footer-column">
+					<div class="form-group">
+						<label for="pageSize" class="sr-only">Number of results</label>
+						<select name="pageSize" id="pageSize" class="form-control form-control--sm">
+							<option value="10">10</option>
+							<option value="20">20</option>
+							<option value="50">50</option>
+							<option value="100">100</option>
+							<option value="10000">All</option>
+						</select>
+					</div>
+					<p id="resultsCount"></p>
+				</div>
+				<ul class="pagination__links" id="pagination">
+					<li><button data-action="prev" class="btn btn--sm btn--outline-primary">Prev</button></li>
+					<li><button data-action="next" class="btn btn--sm btn--outline-primary">Next</button></li>
+				</ul>
+			</div>
+
+		</div>
+	</div>
+</div>
