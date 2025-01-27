@@ -71,20 +71,31 @@ export async function fetchDataFromAPI(apiURL, params = {}) {
 		'Content-Type': contentType,
 	});
 
+	const startDateRangeFrom = params.startDateRange?.from || new Date().toISOString();
+
+	let startDateRangeToNextDay = '';
+	const startDateRangeTo = params.startDateRange?.to || '';
+
+	if (startDateRangeTo) {
+		startDateRangeToNextDay = new Date(startDateRangeTo);
+		startDateRangeToNextDay.setDate(startDateRangeToNextDay.getDate() + 1);
+	}
+
 	// Prepare the request body with the provided parameters and defaults
 	const raw = JSON.stringify({
 		excludeComboBookings: false,
 		page: params.page || 0,
-		pageSize: params.pageSize || 10000,
+		pageSize: 10000,
+		// pageSize: params.pageSize || 10000,
 		sortFields: [
 			{
-				name: params.sortFields?.name || 'startDate',
+				name: params.sortFields?.name || 'startDateTime',
 				order: params.sortFields?.order || 'ASC',
 			},
 		],
 		startDateRange: {
-			from: params.startDateRange?.from || new Date().toISOString(),
-			...(params.startDateRange?.to && { to: params.startDateRange.to }),
+			from: startDateRangeFrom,
+			...(startDateRangeToNextDay && { to: startDateRangeToNextDay }),
 		},
 		bookingStatuses: ['CONFIRMED'],
 	});
@@ -100,13 +111,54 @@ export async function fetchDataFromAPI(apiURL, params = {}) {
 	try {
 		// Make the API request
 		const response = await fetch(apiURL, requestOptions);
+
 		// Check if the response is not OK
 		if (!response.ok) {
 			const errorData = await response.json();
 			throw new Error(errorData.message || 'Failed to fetch bookings data');
 		}
-		// Return the JSON response
-		return await response.json();
+
+		// Get the JSON response
+		const data = await response.json();
+
+		const fromDate = new Date(startDateRangeFrom);
+		const fromDateString = fromDate.toLocaleDateString(); // string in this format: 1/22/2025
+
+		let toDate, toDateString;
+		if (startDateRangeTo) {
+			toDate = new Date(startDateRangeTo);
+			toDateString = toDate.toLocaleDateString(); // string in this format: 1/31/2025
+		}
+
+		const filteredResults = data.results.filter((entry) => {
+			const entryDate = new Date(entry.startDate);
+			const entryDateString = entryDate.toLocaleDateString(); // string in this format: 1/22/2025
+			const entryTimeString = entry.fields.startTimeStr;      // string in this format: 13:00
+
+			const timeA = new Date(`${entryDateString} ${entryTimeString}:00`);
+
+			if (entryDateString == fromDateString) {
+				if (timeA <= fromDate) {
+					return false;
+				} else {
+					return true;
+				}
+			}
+
+			if (startDateRangeTo) {
+				if (timeA <= toDate) {
+					return true;
+				} else {
+					return false;
+				}
+			}
+
+			return true;
+		});
+
+		// Return the filtered results
+		return { ...data, results: filteredResults };
+		// return data;
 	} catch (error) {
 		// Log and rethrow the error
 		console.error('Error fetching data from API:', error);
