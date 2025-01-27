@@ -26,9 +26,5 @@ module.exports = {
 			title: 'Requests',
 			url: '/requests.html',
 		},
-		{
-			title: 'About',
-			url: '/about.html',
-		},
 	],
 };
