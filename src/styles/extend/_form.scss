@@ -2,9 +2,16 @@
 
 @include generate-form-label;
 @include generate-form-control(".form-control", true, true, true);
-@include generate-form-fieldset;
+// @include generate-form-fieldset;
 @include generate-form-group-label;
 @include generate-form-group;
+
+fieldset {
+	margin-inline: 0;
+	border-width: 0;
+	padding-block: 0;
+	padding-inline: 0;
+}
 
 .form-row {
 	--inline-size: 1px;

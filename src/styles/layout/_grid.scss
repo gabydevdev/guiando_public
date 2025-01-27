@@ -1,0 +1,64 @@
+@use "sprucecss/scss/spruce" as *;
+
+// $breakpoints: (
+//  "xs":  32em,    // 512px  - Extra Small Devices (e.g. small phones)
+//  "sm":  48em,    // 768px  - Small Devices (e.g. larger phones)
+//  "md":  64em,    // 1024px - Medium Devices (e.g. tablets)
+//  "lg":  80em,    // 1280px - Large Devices (e.g. small laptops)
+//  "xl":  90em,    // 1440px - Extra Large Devices (e.g. desktops)
+//  "xxl": 110em,   // 1760px - Wide Devices (e.g. large desktops)
+// );
+
+$grid-columns: 12;
+$grid-gutter-width: 3rem;
+$grid-row-columns: 6;
+
+@mixin make-cssgrid($columns: $grid-columns, $breakpoints: $breakpoints) {
+	@each $name, $breakpoint in $breakpoints {
+		@include breakpoint($name) {
+			@if $columns > 0 {
+				@for $i from 1 through $columns {
+					.g-col-#{$name}-#{$i} {
+						grid-column: auto / span $i;
+					}
+				}
+
+				// Start with `1` because `0` is an invalid value.
+				// Ends with `$columns - 1` because offsetting by the width of an entire row isn't possible.
+				@for $i from 1 through ($columns - 1) {
+					.g-start-#{$name}-#{$i} {
+						grid-column-start: $i;
+					}
+				}
+			}
+		}
+	}
+}
+
+.grid {
+	display: grid;
+	grid-template-rows: repeat(var(--rows, 1), 1fr);
+	grid-template-columns: repeat(var(--columns, #{$grid-columns}), 1fr);
+	gap: var(--gap, #{$grid-gutter-width});
+}
+
+$columns: $grid-columns;
+
+@if $columns > 0 {
+	$infix: '';
+	@for $i from 1 through $columns {
+		.g-col#{$infix}-#{$i} {
+			grid-column: auto / span $i;
+		}
+	}
+
+	// Start with `1` because `0` is an invalid value.
+	// Ends with `$columns - 1` because offsetting by the width of an entire row isn't possible.
+	@for $i from 1 through ($columns - 1) {
+		.g-start#{$infix}-#{$i} {
+			grid-column-start: $i;
+		}
+	}
+}
+
+@include make-cssgrid();
