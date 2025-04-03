@@ -61,6 +61,7 @@
 		"alpinejs": "^3.14.8",
 		"bootstrap": "^5.3.3",
 		"crypto-js": "^4.2.0",
+		"jquery": "^3.7.1",
 		"signature_pad": "^5.0.4",
 		"sprucecss": "^2.3.3"
 	}

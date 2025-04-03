@@ -27,4 +27,5 @@ module.exports = {
 			url: '/requests.html',
 		},
 	],
+	groups: Array.from({ length: 10 }, (_, i) => `Group ${i + 1}`),
 };

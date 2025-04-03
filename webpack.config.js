@@ -2,6 +2,7 @@ const fs = require('fs');
 const Webpack = require('webpack');
 const Path = require('path');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 const HtmlBundlerPlugin = require('html-bundler-webpack-plugin');
 
 const isDev = process.env.NODE_ENV === 'development';
@@ -56,6 +57,9 @@ module.exports = {
 			'process.env.FORM_URL': JSON.stringify(process.env.FORM_URL),
 		}),
 		new CleanWebpackPlugin(),
+		new CopyWebpackPlugin({
+			patterns: [{ from: Path.resolve(__dirname, 'public'), to: '' }],
+		}),
 		new HtmlBundlerPlugin({
 			entry: generateEntries(pagesDirectory),
 			data: 'src/data/global.js',
@@ -65,10 +69,10 @@ module.exports = {
 				partials: ['src/partials/', 'src/pages/'],
 			},
 			js: {
-				filename: 'js/[name].js',
+				filename: 'assets/js/[name].js',
 			},
 			css: {
-				filename: 'css/[name].css',
+				filename: 'assets/css/[name].css',
 			},
 			verbose: true,
 		}),
@@ -105,8 +109,18 @@ module.exports = {
 				],
 			},
 			{
-				test: /\.(ico|jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2)(\?.*)?$/,
+				test: /\.(woff2|woff|ttf)(\?.*)?$/,
 				type: 'asset/resource',
+				generator: {
+					filename: 'assets/fonts/[name].[ext]',
+				},
+			},
+			{
+				test: /\.(jpg|jpeg|png|gif|webp)(\?.*)?$/,
+				type: 'asset/resource',
+				generator: {
+					filename: 'assets/images/[name].[ext]',
+				},
 			},
 			{
 				test: /\.svg$/,
@@ -126,16 +140,11 @@ module.exports = {
 			message: /repetitive deprecation warnings omitted/,
 		},
 	],
-	// stats: {
-	// 	all: true,
-	// 	warnings: true,
-	// 	errors: true,
-	// },
 	devServer: {
 		port: 8000,
 		liveReload: true,
 		open: true,
-		static: Path.resolve(__dirname, 'build'),
+		static: Path.resolve(__dirname, 'public'),
 		watchFiles: {
 			paths: ['src/**/*.*'],
 			options: {

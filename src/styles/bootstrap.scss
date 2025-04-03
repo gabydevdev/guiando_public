@@ -1,0 +1,53 @@
+// Bootstrap
+
+// 1. Include functions first (so you can manipulate colors, SVGs, calc, etc)
+@import "bootstrap/scss/functions";
+
+// 2. Include any default variable overrides here
+
+// Options
+//
+// Quickly modify global styling by enabling or disabling optional features.
+
+$enable-caret:                true;
+$enable-rounded:              true;
+$enable-shadows:              false;
+$enable-gradients:            false;
+$enable-transitions:          true;
+$enable-reduced-motion:       true;
+$enable-smooth-scroll:        true;
+$enable-grid-classes:         false;
+$enable-container-classes:    false;
+$enable-cssgrid:              true;
+$enable-button-pointers:      true;
+$enable-rfs:                  true;
+$enable-validation-icons:     true;
+$enable-negative-margins:     false;
+$enable-deprecation-messages: false;
+$enable-important-utilities:  false;
+$enable-dark-mode:            false;
+
+// Prefix for :root CSS variables
+
+$prefix: "";
+
+// 3. Include remainder of required Bootstrap stylesheets (including any separate color mode stylesheets)
+@import "bootstrap/scss/variables";
+
+// 4. Include any default map overrides here
+
+// 5. Include remainder of required parts
+@import "bootstrap/scss/maps";
+@import "bootstrap/scss/mixins";
+@import "bootstrap/scss/root";
+
+// 6. Optionally include any other parts as needed
+@import "bootstrap/scss/reboot";
+@import "bootstrap/scss/forms";
+@import "bootstrap/scss/buttons";
+
+
+// 7. Optionally include utilities API last to generate classes based on the Sass map in `_utilities.scss`
+// @import "bootstrap/scss/utilities/api";
+
+// 8. Add additional custom code here

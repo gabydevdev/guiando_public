@@ -71,14 +71,16 @@ export async function fetchDataFromAPI(apiURL, params = {}) {
 		'Content-Type': contentType,
 	});
 
-	const startDateRangeFrom = params.startDateRange?.from || new Date().toISOString();
+	let startDateRangeFrom = params.startDateRange?.from || new Date().toISOString();
+	startDateRangeFrom = new Date(startDateRangeFrom);
+	startDateRangeFrom.setDate(startDateRangeFrom.getDate() - 1);
 
 	let startDateRangeToNextDay = '';
 	const startDateRangeTo = params.startDateRange?.to || '';
 
 	if (startDateRangeTo) {
 		startDateRangeToNextDay = new Date(startDateRangeTo);
-		startDateRangeToNextDay.setDate(startDateRangeToNextDay.getDate() + 1);
+		startDateRangeToNextDay.setDate(startDateRangeToNextDay.getDate() - 2);
 	}
 
 	// Prepare the request body with the provided parameters and defaults

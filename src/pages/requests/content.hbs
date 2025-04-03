@@ -1,5 +1,15 @@
+<script>
+var options = { "id": 23, "app": "\/\/forms.border.ventures\/app\/app", "tracker": "js\/form.tracker.js", "name": "#form-app", "actionUrl": "https:\/\/forms.border.ventures\/app\/app\/f?id=23", "validationUrl": "https:\/\/forms.border.ventures\/app\/app\/check?id=23", "_csrf": "FTimgWUGsb3MMkq4NmGeIgkviVHB1CVexsg6rQJC645YbN7FE1HFxftHCcJQV89SY0fYFaCEUxO0hE3vOiGC-Q==", "resume": 0, "text_direction": "ltr", "autocomplete": 1, "novalidate": 0, "analytics": 1, "confirmationType": 0, "confirmationMessage": false, "confirmationUrl": "", "confirmationSeconds": null, "confirmationAppend": 0, "confirmationAlias": 0, "showOnlyMessage": 1, "redirectToUrl": 2, "rules": [], "fieldIds": ["selectlist_1", "selectlist_2", "selectlist_3", "selectlist_4", "selectlist_5", "selectlist_6", "date_1", "date_2", "matrix_1_0_0", "matrix_1_0_1", "matrix_1_0_2", "matrix_1_0_3", "matrix_1_1_0", "matrix_1_1_1", "matrix_1_1_2", "matrix_1_1_3", "matrix_1_2_0", "matrix_1_2_1", "matrix_1_2_2", "matrix_1_2_3", "matrix_1_3_0", "matrix_1_3_1", "matrix_1_3_2", "matrix_1_3_3", "matrix_1_4_0", "matrix_1_4_1", "matrix_1_4_2", "matrix_1_4_3", "matrix_1_5_0", "matrix_1_5_1", "matrix_1_5_2", "matrix_1_5_3", "matrix_1_6_0", "matrix_1_6_1", "matrix_1_6_2", "matrix_1_6_3", "matrix_1_7_0", "matrix_1_7_1", "matrix_1_7_2", "matrix_1_7_3", "matrix_1_8_0", "matrix_1_8_1", "matrix_1_8_2", "matrix_1_8_3", "matrix_1_9_0", "matrix_1_9_1", "matrix_1_9_2", "matrix_1_9_3", "number_1", "number_2", "number_3", "textarea_1", "checkbox_1_0", "checkbox_1_1", "checkbox_1_2", "checkbox_1_3", "checkbox_1_4", "checkbox_1_5", "radio_1_0", "radio_1_1", "radio_1_2", "radio_1_3", "number_4", "number_6", "number_5", "textarea_2", "number_8", "hidden_signature_2", "hidden_signature_1", "button_1"], "submitted": false, "runOppositeActions": true, "skips": [], "reCaptchaVersion": "2", "reCaptchaSiteKey": "your_site_key", "defaultValues": false, "i18n": { "complete": "Complete", "unexpectedError": "An unexpected error has occurred. Please retry later." } };
+var groups = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+</script>
+
+<script>
+
+</script>
+
 <div class="app-card app-card--edit">
 	<div class="app-card__body">
+		<div id="messages"></div>
 		<form action="https://forms.border.ventures/app/app/f?id=23" method="post" enctype="multipart/form-data" accept-charset="UTF-8" id="form-app">
 			<fieldset class="grid">
 
@@ -93,22 +103,31 @@
 				<div class="g-col-md-12">
 					<div class="form-group">
 						<legend>Start Date and Time Range</legend>
-						<div class="form-group--stacked">
-							<div class="form-group-label" for="date_1">From:</div>
-							<input type="datetime-local" id="date_1" name="date_1" value="" data-alias="" class="form-control">
-							<div class="form-group-label" for="date_2">To:</div>
-							<input type="datetime-local" id="date_2" name="date_2" value="" data-alias="" class="form-control">
+						<div class="grid">
+							<div class="g-col-md-6">
+								<div class="form-group--row">
+									<label class="form-label" for="date_1">From:</label>
+									<input type="date" id="date_1" name="date_1" value="" data-alias="" class="form-control" autocomplete="on">
+								</div>
+							</div>
+							<div class="g-col-md-6">
+								<div class="col form-group--row">
+									<label class="form-label" for="date_2">To:</label>
+									<input type="date" id="date_2" name="date_2" value="" data-alias="" class="form-control" autocomplete="on">
+								</div>
+							</div>
 						</div>
 					</div>
 				</div>
 
 				<!-- Bookings -->
-				<div class="g-col-md-6">
+				<div class="g-col-md-12">
 					<div class="form-group">
 						<label class="form-label" for="selectlist_bookings">Bookings</label>
 						<select id="selectlist_bookings" name="selectlist_bookings[]" data-alias="" class="form-control">
 							<option value="Select One">Select One</option>
 						</select>
+						<p id="totalResults"></p>
 					</div>
 				</div>
 
@@ -126,222 +145,15 @@
 									<th class="text-center">Traveler Name</th>
 									<th class="text-center"># PAX</th>
 									<th class="text-center">Phone</th>
+									<th>&nbsp;</th>
 								</tr>
 							</thead>
 							<tbody>
-								<tr>
-									<th>
-										<label for="matrix_1_0">Group 1</label>
-									</th>
-									<td class="text-center matrix_1_q_1 matrix_1_a_1" title="Reference #">
-										<input type="text" id="matrix_1_0_0" name="matrix_1_0_0" data-label="Group 1 > Reference #" data-matrix-id="matrix_1" data-matrix-label="Answer the following questions" data-matrix-question="Group 1" data-matrix-answer="Reference #" class="form-control">
-
-									</td>
-									<td class="text-center matrix_1_q_1 matrix_1_a_2" title="Traveler Name">
-										<input type="text" id="matrix_1_0_1" name="matrix_1_0_1" data-label="Group 1 > Traveler Name" data-matrix-id="matrix_1" data-matrix-label="Answer the following questions" data-matrix-question="Group 1" data-matrix-answer="Traveler Name" class="form-control">
-
-									</td>
-									<td class="text-center matrix_1_q_1 matrix_1_a_3" title="# PAX">
-										<input type="text" id="matrix_1_0_2" name="matrix_1_0_2" data-label="Group 1 > # PAX" data-matrix-id="matrix_1" data-matrix-label="Answer the following questions" data-matrix-question="Group 1" data-matrix-answer="# PAX" class="form-control">
-
-									</td>
-									<td class="text-center matrix_1_q_1 matrix_1_a_4" title="Phone">
-										<input type="text" id="matrix_1_0_3" name="matrix_1_0_3" data-label="Group 1 > Phone" data-matrix-id="matrix_1" data-matrix-label="Answer the following questions" data-matrix-question="Group 1" data-matrix-answer="Phone" class="form-control">
-
-									</td>
-								</tr>
-								<tr>
-									<th>
-										<label for="matrix_1_1">Group 2</label>
-									</th>
-									<td class="text-center matrix_1_q_2 matrix_1_a_1" title="Reference #">
-										<input type="text" id="matrix_1_1_0" name="matrix_1_1_0" data-label="Group 2 > Reference #" data-matrix-id="matrix_1" data-matrix-label="Answer the following questions" data-matrix-question="Group 2" data-matrix-answer="Reference #" class="form-control">
-
-									</td>
-									<td class="text-center matrix_1_q_2 matrix_1_a_2" title="Traveler Name">
-										<input type="text" id="matrix_1_1_1" name="matrix_1_1_1" data-label="Group 2 > Traveler Name" data-matrix-id="matrix_1" data-matrix-label="Answer the following questions" data-matrix-question="Group 2" data-matrix-answer="Traveler Name" class="form-control">
-
-									</td>
-									<td class="text-center matrix_1_q_2 matrix_1_a_3" title="# PAX">
-										<input type="text" id="matrix_1_1_2" name="matrix_1_1_2" data-label="Group 2 > # PAX" data-matrix-id="matrix_1" data-matrix-label="Answer the following questions" data-matrix-question="Group 2" data-matrix-answer="# PAX" class="form-control">
-
-									</td>
-									<td class="text-center matrix_1_q_2 matrix_1_a_4" title="Phone">
-										<input type="text" id="matrix_1_1_3" name="matrix_1_1_3" data-label="Group 2 > Phone" data-matrix-id="matrix_1" data-matrix-label="Answer the following questions" data-matrix-question="Group 2" data-matrix-answer="Phone" class="form-control">
-
-									</td>
-								</tr>
-								<tr>
-									<th>
-										<label for="matrix_1_2">Group 3</label>
-									</th>
-									<td class="text-center matrix_1_q_3 matrix_1_a_1" title="Reference #">
-										<input type="text" id="matrix_1_2_0" name="matrix_1_2_0" data-label="Group 3 > Reference #" data-matrix-id="matrix_1" data-matrix-label="Answer the following questions" data-matrix-question="Group 3" data-matrix-answer="Reference #" class="form-control">
-
-									</td>
-									<td class="text-center matrix_1_q_3 matrix_1_a_2" title="Traveler Name">
-										<input type="text" id="matrix_1_2_1" name="matrix_1_2_1" data-label="Group 3 > Traveler Name" data-matrix-id="matrix_1" data-matrix-label="Answer the following questions" data-matrix-question="Group 3" data-matrix-answer="Traveler Name" class="form-control">
-
-									</td>
-									<td class="text-center matrix_1_q_3 matrix_1_a_3" title="# PAX">
-										<input type="text" id="matrix_1_2_2" name="matrix_1_2_2" data-label="Group 3 > # PAX" data-matrix-id="matrix_1" data-matrix-label="Answer the following questions" data-matrix-question="Group 3" data-matrix-answer="# PAX" class="form-control">
-
-									</td>
-									<td class="text-center matrix_1_q_3 matrix_1_a_4" title="Phone">
-										<input type="text" id="matrix_1_2_3" name="matrix_1_2_3" data-label="Group 3 > Phone" data-matrix-id="matrix_1" data-matrix-label="Answer the following questions" data-matrix-question="Group 3" data-matrix-answer="Phone" class="form-control">
-
-									</td>
-								</tr>
-								<tr>
-									<th>
-										<label for="matrix_1_3">Group 4</label>
-									</th>
-									<td class="text-center matrix_1_q_4 matrix_1_a_1" title="Reference #">
-										<input type="text" id="matrix_1_3_0" name="matrix_1_3_0" data-label="Group 4 > Reference #" data-matrix-id="matrix_1" data-matrix-label="Answer the following questions" data-matrix-question="Group 4" data-matrix-answer="Reference #" class="form-control">
-
-									</td>
-									<td class="text-center matrix_1_q_4 matrix_1_a_2" title="Traveler Name">
-										<input type="text" id="matrix_1_3_1" name="matrix_1_3_1" data-label="Group 4 > Traveler Name" data-matrix-id="matrix_1" data-matrix-label="Answer the following questions" data-matrix-question="Group 4" data-matrix-answer="Traveler Name" class="form-control">
-
-									</td>
-									<td class="text-center matrix_1_q_4 matrix_1_a_3" title="# PAX">
-										<input type="text" id="matrix_1_3_2" name="matrix_1_3_2" data-label="Group 4 > # PAX" data-matrix-id="matrix_1" data-matrix-label="Answer the following questions" data-matrix-question="Group 4" data-matrix-answer="# PAX" class="form-control">
-
-									</td>
-									<td class="text-center matrix_1_q_4 matrix_1_a_4" title="Phone">
-										<input type="text" id="matrix_1_3_3" name="matrix_1_3_3" data-label="Group 4 > Phone" data-matrix-id="matrix_1" data-matrix-label="Answer the following questions" data-matrix-question="Group 4" data-matrix-answer="Phone" class="form-control">
-
-									</td>
-								</tr>
-								<tr>
-									<th>
-										<label for="matrix_1_4">Group 5</label>
-									</th>
-									<td class="text-center matrix_1_q_5 matrix_1_a_1" title="Reference #">
-										<input type="text" id="matrix_1_4_0" name="matrix_1_4_0" data-label="Group 5 > Reference #" data-matrix-id="matrix_1" data-matrix-label="Answer the following questions" data-matrix-question="Group 5" data-matrix-answer="Reference #" class="form-control">
-
-									</td>
-									<td class="text-center matrix_1_q_5 matrix_1_a_2" title="Traveler Name">
-										<input type="text" id="matrix_1_4_1" name="matrix_1_4_1" data-label="Group 5 > Traveler Name" data-matrix-id="matrix_1" data-matrix-label="Answer the following questions" data-matrix-question="Group 5" data-matrix-answer="Traveler Name" class="form-control">
-
-									</td>
-									<td class="text-center matrix_1_q_5 matrix_1_a_3" title="# PAX">
-										<input type="text" id="matrix_1_4_2" name="matrix_1_4_2" data-label="Group 5 > # PAX" data-matrix-id="matrix_1" data-matrix-label="Answer the following questions" data-matrix-question="Group 5" data-matrix-answer="# PAX" class="form-control">
-
-									</td>
-									<td class="text-center matrix_1_q_5 matrix_1_a_4" title="Phone">
-										<input type="text" id="matrix_1_4_3" name="matrix_1_4_3" data-label="Group 5 > Phone" data-matrix-id="matrix_1" data-matrix-label="Answer the following questions" data-matrix-question="Group 5" data-matrix-answer="Phone" class="form-control">
-
-									</td>
-								</tr>
-								<tr>
-									<th>
-										<label for="matrix_1_5">Group 6</label>
-									</th>
-									<td class="text-center matrix_1_q_6 matrix_1_a_1" title="Reference #">
-										<input type="text" id="matrix_1_5_0" name="matrix_1_5_0" data-label="Group 6 > Reference #" data-matrix-id="matrix_1" data-matrix-label="Answer the following questions" data-matrix-question="Group 6" data-matrix-answer="Reference #" class="form-control">
-
-									</td>
-									<td class="text-center matrix_1_q_6 matrix_1_a_2" title="Traveler Name">
-										<input type="text" id="matrix_1_5_1" name="matrix_1_5_1" data-label="Group 6 > Traveler Name" data-matrix-id="matrix_1" data-matrix-label="Answer the following questions" data-matrix-question="Group 6" data-matrix-answer="Traveler Name" class="form-control">
-
-									</td>
-									<td class="text-center matrix_1_q_6 matrix_1_a_3" title="# PAX">
-										<input type="text" id="matrix_1_5_2" name="matrix_1_5_2" data-label="Group 6 > # PAX" data-matrix-id="matrix_1" data-matrix-label="Answer the following questions" data-matrix-question="Group 6" data-matrix-answer="# PAX" class="form-control">
-
-									</td>
-									<td class="text-center matrix_1_q_6 matrix_1_a_4" title="Phone">
-										<input type="text" id="matrix_1_5_3" name="matrix_1_5_3" data-label="Group 6 > Phone" data-matrix-id="matrix_1" data-matrix-label="Answer the following questions" data-matrix-question="Group 6" data-matrix-answer="Phone" class="form-control">
-
-									</td>
-								</tr>
-								<tr>
-									<th>
-										<label for="matrix_1_6">Group 7</label>
-									</th>
-									<td class="text-center matrix_1_q_7 matrix_1_a_1" title="Reference #">
-										<input type="text" id="matrix_1_6_0" name="matrix_1_6_0" data-label="Group 7 > Reference #" data-matrix-id="matrix_1" data-matrix-label="Answer the following questions" data-matrix-question="Group 7" data-matrix-answer="Reference #" class="form-control">
-
-									</td>
-									<td class="text-center matrix_1_q_7 matrix_1_a_2" title="Traveler Name">
-										<input type="text" id="matrix_1_6_1" name="matrix_1_6_1" data-label="Group 7 > Traveler Name" data-matrix-id="matrix_1" data-matrix-label="Answer the following questions" data-matrix-question="Group 7" data-matrix-answer="Traveler Name" class="form-control">
-
-									</td>
-									<td class="text-center matrix_1_q_7 matrix_1_a_3" title="# PAX">
-										<input type="text" id="matrix_1_6_2" name="matrix_1_6_2" data-label="Group 7 > # PAX" data-matrix-id="matrix_1" data-matrix-label="Answer the following questions" data-matrix-question="Group 7" data-matrix-answer="# PAX" class="form-control">
-
-									</td>
-									<td class="text-center matrix_1_q_7 matrix_1_a_4" title="Phone">
-										<input type="text" id="matrix_1_6_3" name="matrix_1_6_3" data-label="Group 7 > Phone" data-matrix-id="matrix_1" data-matrix-label="Answer the following questions" data-matrix-question="Group 7" data-matrix-answer="Phone" class="form-control">
-
-									</td>
-								</tr>
-								<tr>
-									<th>
-										<label for="matrix_1_7">Group 8</label>
-									</th>
-									<td class="text-center matrix_1_q_8 matrix_1_a_1" title="Reference #">
-										<input type="text" id="matrix_1_7_0" name="matrix_1_7_0" data-label="Group 8 > Reference #" data-matrix-id="matrix_1" data-matrix-label="Answer the following questions" data-matrix-question="Group 8" data-matrix-answer="Reference #" class="form-control">
-
-									</td>
-									<td class="text-center matrix_1_q_8 matrix_1_a_2" title="Traveler Name">
-										<input type="text" id="matrix_1_7_1" name="matrix_1_7_1" data-label="Group 8 > Traveler Name" data-matrix-id="matrix_1" data-matrix-label="Answer the following questions" data-matrix-question="Group 8" data-matrix-answer="Traveler Name" class="form-control">
-
-									</td>
-									<td class="text-center matrix_1_q_8 matrix_1_a_3" title="# PAX">
-										<input type="text" id="matrix_1_7_2" name="matrix_1_7_2" data-label="Group 8 > # PAX" data-matrix-id="matrix_1" data-matrix-label="Answer the following questions" data-matrix-question="Group 8" data-matrix-answer="# PAX" class="form-control">
-
-									</td>
-									<td class="text-center matrix_1_q_8 matrix_1_a_4" title="Phone">
-										<input type="text" id="matrix_1_7_3" name="matrix_1_7_3" data-label="Group 8 > Phone" data-matrix-id="matrix_1" data-matrix-label="Answer the following questions" data-matrix-question="Group 8" data-matrix-answer="Phone" class="form-control">
-
-									</td>
-								</tr>
-								<tr>
-									<th>
-										<label for="matrix_1_8">Group 9</label>
-									</th>
-									<td class="text-center matrix_1_q_9 matrix_1_a_1" title="Reference #">
-										<input type="text" id="matrix_1_8_0" name="matrix_1_8_0" data-label="Group 9 > Reference #" data-matrix-id="matrix_1" data-matrix-label="Answer the following questions" data-matrix-question="Group 9" data-matrix-answer="Reference #" class="form-control">
-
-									</td>
-									<td class="text-center matrix_1_q_9 matrix_1_a_2" title="Traveler Name">
-										<input type="text" id="matrix_1_8_1" name="matrix_1_8_1" data-label="Group 9 > Traveler Name" data-matrix-id="matrix_1" data-matrix-label="Answer the following questions" data-matrix-question="Group 9" data-matrix-answer="Traveler Name" class="form-control">
-
-									</td>
-									<td class="text-center matrix_1_q_9 matrix_1_a_3" title="# PAX">
-										<input type="text" id="matrix_1_8_2" name="matrix_1_8_2" data-label="Group 9 > # PAX" data-matrix-id="matrix_1" data-matrix-label="Answer the following questions" data-matrix-question="Group 9" data-matrix-answer="# PAX" class="form-control">
-
-									</td>
-									<td class="text-center matrix_1_q_9 matrix_1_a_4" title="Phone">
-										<input type="text" id="matrix_1_8_3" name="matrix_1_8_3" data-label="Group 9 > Phone" data-matrix-id="matrix_1" data-matrix-label="Answer the following questions" data-matrix-question="Group 9" data-matrix-answer="Phone" class="form-control">
-
-									</td>
-								</tr>
-								<tr>
-									<th>
-										<label for="matrix_1_9">Group 10</label>
-									</th>
-									<td class="text-center matrix_1_q_10 matrix_1_a_1" title="Reference #">
-										<input type="text" id="matrix_1_9_0" name="matrix_1_9_0" data-label="Group 10 > Reference #" data-matrix-id="matrix_1" data-matrix-label="Answer the following questions" data-matrix-question="Group 10" data-matrix-answer="Reference #" class="form-control">
-
-									</td>
-									<td class="text-center matrix_1_q_10 matrix_1_a_2" title="Traveler Name">
-										<input type="text" id="matrix_1_9_1" name="matrix_1_9_1" data-label="Group 10 > Traveler Name" data-matrix-id="matrix_1" data-matrix-label="Answer the following questions" data-matrix-question="Group 10" data-matrix-answer="Traveler Name" class="form-control">
-
-									</td>
-									<td class="text-center matrix_1_q_10 matrix_1_a_3" title="# PAX">
-										<input type="text" id="matrix_1_9_2" name="matrix_1_9_2" data-label="Group 10 > # PAX" data-matrix-id="matrix_1" data-matrix-label="Answer the following questions" data-matrix-question="Group 10" data-matrix-answer="# PAX" class="form-control">
-
-									</td>
-									<td class="text-center matrix_1_q_10 matrix_1_a_4" title="Phone">
-										<input type="text" id="matrix_1_9_3" name="matrix_1_9_3" data-label="Group 10 > Phone" data-matrix-id="matrix_1" data-matrix-label="Answer the following questions" data-matrix-question="Group 10" data-matrix-answer="Phone" class="form-control">
-
-									</td>
-								</tr>
+								{{#each groups}}
+									{{> matrix-row index=@index groupNumber=this}}
+								{{/each}}
 							</tbody>
 						</table>
-
 					</div>
 				</div>
 
